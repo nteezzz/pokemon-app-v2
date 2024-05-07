@@ -1,0 +1,43 @@
+li{
+    list-style: none;
+}
+
+.card{
+    margin: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.card-img-top{
+    width: 300px;
+    padding: 10px;
+}
+.row{
+    justify-content: space-evenly;
+}
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+.dark-theme {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+.header-row{
+    display: flex;
+  }
+h1{
+    margin-right: 20px;
+
+}
+.login-container{
+    display: flex;
+    margin-left: auto;
+    align-self: center;
+}
+.login-container button{
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
