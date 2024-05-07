@@ -3,50 +3,32 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './productListingPage.css'
 import { generateImageURL } from '../utils/imageURL';
-// using Context API
-// import { ThemeContext } from '../context/themeContext';
-// import { useContext } from 'react';
 import { LogComponent } from '../components/logComponent';
 import {useSelector, useDispatch} from 'react-redux'
 import { ToggleSwitch } from '../components/toggleSwitch';
+import { fetchPokemonsRequest } from '../redux/actions/pokemons.js';
 
 export const ProductListingPage = () => {
-  const [pokemonList, setPokemonList]= useState([]);
+  //const [pokemonList, setPokemonList]= useState([]);
   //using Redux  
   const themeRedux= useSelector((state)=>state.theme.theme);
-  const dispatch= useDispatch()
-  
-  // Using ContextAPI
-  // const { theme, toggleTheme } = useContext(ThemeContext);
-  
-  useEffect(() => {
-    // const fetchPokemonList = async () => {
-    //   try {
-    //     const response = await axios.get('https://pokeapi.co/api/v2/pokemon');
-    //     setPokemonList(response.data.results);
-    //   } catch (error) {
-    //     console.error('Error fetching Pokémon list:', error);
-    //   }
-    // };
-    //fetchPokemonList();
-    const getPokemonData = () => {
-      axios
-          .get("https://pokeapi.co/api/v2/pokemon")
-          .then(response=>setPokemonList(response.data.results))
-          .catch(error => console.log(error));
-  };
-  getPokemonData();
-  }, []);
+  const dispatch= useDispatch();
+  const pokemons = useSelector(state => state.pokemon.pokemon);
+  const loading = useSelector(state => state.pokemon.loading);
+  const error = useSelector(state => state.pokemon.error);
 
+  useEffect(() => {
+    dispatch(fetchPokemonsRequest());
+  }, [dispatch]);
   
   return (
     <div>
-      
       <div className={themeRedux === 'light' ? 'light-theme' : 'dark-theme'}>
       <div className='header-row'><h1>Pokémon App</h1><ToggleSwitch/><div className='login-container'><LogComponent/></div></div>
-      
-      <ul className='row'>
-        {pokemonList.map((pokemon, index) => (
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {pokemons&& <ul className='row'>
+        {pokemons.map((pokemon, index) => (
           <li key={index}>
             <div className='col'>
             <div className="card" id='grey-area'>
@@ -60,9 +42,8 @@ export const ProductListingPage = () => {
           </li>
         ))}
         <li>
-
         </li>
-      </ul>
+      </ul> }
     </div>
       
     </div>

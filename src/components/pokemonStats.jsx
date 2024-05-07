@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import { ThemeContext } from '../context/themeContext';
 
 export const PokemonStats= ({ stats }) => {
   const chartRef = useRef(null);
@@ -32,7 +31,6 @@ export const PokemonStats= ({ stats }) => {
           },
         ],
       };
-
       const chartOptions = {
         scales: {
           y: {

@@ -1,11 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../context/authContext';
 import {useSelector, useDispatch} from 'react-redux'
-import {login,logout, setUsername} from '../features/authSlice.jsx'
+import {login,logout, setUsername} from '../redux/slice/authSlice.jsx'
 
 export const LogComponent= () => {
-  //useing context API
-  //const {loggedIn, setLoggedIn,username,setUsername}=useContext(AuthContext);
   const loggedInRedux= useSelector((state)=>state.auth.loggedIn);
   const usernameRedux= useSelector((state)=>state.auth.username);
   const dispatch= useDispatch();
