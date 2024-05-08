@@ -7,21 +7,21 @@ import { PokemonStats } from '../components/pokemonStats.jsx';
 import { LogComponent } from '../components/logComponent.jsx';
 import { ToggleSwitch } from '../components/toggleSwitch.jsx';
 import {useSelector, useDispatch} from 'react-redux'
-import { fetchPokemonDetailRequest } from '../redux/actions/pokemonDetail.js';
+import { FETCH_POKEMON_REQUEST as fetchPokemonDetails } from '../redux/actions/pokemon.js';
 
 export const ProductDescriptionPage = () => {
 const { id } = useParams();
+const API= `https://pokeapi.co/api/v2/pokemon/${id}/`;
 //Using Redux
 const themeRedux= useSelector((state)=>state.theme.theme);
 const dispatch= useDispatch();
-const pokemonDetail = useSelector(state => state.pokemonDetail.pokemon);
-const loading = useSelector(state => state.pokemonDetail.loading);
-const error = useSelector(state => state.pokemonDetail.error);
+const pokemonDetail = useSelector(state => state.pokemon.pokemonDetail);
+const loading = useSelector(state => state.pokemon.loading);
+const error = useSelector(state => state.pokemon.error);
 
 useEffect(() => {
-  dispatch(fetchPokemonDetailRequest(id));
-}, [dispatch]);
-
+  dispatch(fetchPokemonDetails({ api: API, page: "PDP" }));
+}, [API]);
 
 
 return (

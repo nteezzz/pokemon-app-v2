@@ -6,20 +6,22 @@ import { generateImageURL } from '../utils/imageURL';
 import { LogComponent } from '../components/logComponent';
 import {useSelector, useDispatch} from 'react-redux'
 import { ToggleSwitch } from '../components/toggleSwitch';
-import { fetchPokemonsRequest } from '../redux/actions/pokemons.js';
+import { FETCH_POKEMON_REQUEST as fetchPokemonList } from '../redux/actions/pokemon.js';
 
 export const ProductListingPage = () => {
-  //const [pokemonList, setPokemonList]= useState([]);
-  //using Redux  
+  
   const themeRedux= useSelector((state)=>state.theme.theme);
   const dispatch= useDispatch();
-  const pokemons = useSelector(state => state.pokemon.pokemon);
+  const pokemons = useSelector(state => state.pokemon.pokemons);
   const loading = useSelector(state => state.pokemon.loading);
   const error = useSelector(state => state.pokemon.error);
-
+  const next = useSelector(state =>state.pokemon.next);
   useEffect(() => {
-    dispatch(fetchPokemonsRequest());
-  }, [dispatch]);
+    dispatch(fetchPokemonList({page:'PLP', api:'https://pokeapi.co/api/v2/pokemon/', next: next}));
+  }, []);
+  useEffect(() => {
+      dispatch(fetchPokemonList({page:'PLP', api:'https://pokeapi.co/api/v2/pokemon/', next: next }));
+  }, [next]);
   
   return (
     <div>
