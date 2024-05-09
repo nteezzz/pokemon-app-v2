@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { generateImageURL } from '../utils/imageURL';
+import { generateImageURL } from '../../utils/imageURL.js';
 import './productDescriptionpage.css';
-import { PopulateType } from '../components/populateType.jsx';
-import { PokemonStats } from '../components/pokemonStats.jsx';
-import { LogComponent } from '../components/logComponent.jsx';
-import { ToggleSwitch } from '../components/toggleSwitch.jsx';
+
+import { PopulateType } from '../../components/PopulateType/populateType.jsx';
+import { PokemonStats } from '../../components/PokemonStats/pokemonStats.jsx';
+import { LogComponent } from '../../components/LogComponent/logComponent.jsx';
+import { ToggleSwitch } from '../../components/ToggleSwitch/toggleSwitch.jsx';
 import {useSelector, useDispatch} from 'react-redux'
-import { FETCH_POKEMON_REQUEST as fetchPokemonDetails } from '../redux/actions/pokemon.js';
+import { FETCH_POKEMON_REQUEST as fetchPokemonDetails } from '../../redux/actions/pokemon.js';
 
 export const ProductDescriptionPage = () => {
 const { id } = useParams();

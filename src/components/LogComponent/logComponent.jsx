@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux'
-import {login,logout, setUsername} from '../redux/slice/authSlice.jsx'
+import {login,logout, setUsername} from '../../redux/slice/authSlice.jsx'
 
 export const LogComponent= () => {
   const loggedInRedux= useSelector((state)=>state.auth.loggedIn);

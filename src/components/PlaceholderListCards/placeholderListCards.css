@@ -1,0 +1,45 @@
+.skeleton {
+    background-color: #f0f0f0; /* Placeholder background color */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    height: 100px; /* Adjust height as needed */
+  }
+  
+  .skeleton-animation {
+    animation: skeleton-loading 1s ease-in-out infinite alternate; /* Animation duration and timing */
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      opacity: 0.6; /* Initial opacity */
+    }
+    100% {
+      opacity: 1; /* Final opacity */
+    }
+  }
+      /* Placeholder Styles */
+  .placeholder {
+    background-color: #f0f0f0; /* Placeholder background color */
+    border-radius: 8px;
+  }
+  
+  /* Placeholder Image */
+  .card-img-top.placeholder {
+    width: 100%;
+  height: 150px; /* Adjust height as needed */
+  background-color: #f0f0f0; /* Placeholder background color */
+  }
+  
+  /* Placeholder Title */
+  .card-title.placeholder {
+    width: 80%; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+  }
+  
+  /* Placeholder Link */
+  .card-link.placeholder {
+    width: 100px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+  }
+  
+  /* Responsive Styles */

@@ -1,9 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
+    color-scheme: light dark;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -67,7 +63,7 @@ button:focus-visible {
 
 .light-theme {
   background-color: #ffffff;
-  color: #000000;
+  color: #535353;
 }
 
 .dark-theme {
@@ -83,4 +79,11 @@ button:focus-visible {
 .dark-theme #login-area{
   background-color: #333333;
   color: #ffffff;
+}
+
+@font-face {
+  font-family: "PokemonSolid";
+  src: local("PokemonSolid"),
+    url("./src/assets/fonts/Pokemon Solid.ttf") format("truetype");
+  font-weight: normal;
 }

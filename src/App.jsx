@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {ProductListingPage} from './ProductListingPage/productListingPage.jsx';
-import {ProductDescriptionPage} from './ProductDescriptionPage/productDescriptionPage.jsx';
+
+import { ProductDescriptionPage } from './pages/ProductDescriptionPage/productDescriptionPage.jsx';
+import { ProductListingPage } from './pages/ProductListingPage/productListingPage.jsx';
 
 
 function App() {
