@@ -18,6 +18,5 @@ export const ToggleSwitch = () => {
     <div className="toggle-container">
       <input type="checkbox" className="toggle-button" onClick={handleToggle}/>
    </div>
-    
   );
 };

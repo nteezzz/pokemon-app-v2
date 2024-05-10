@@ -5,7 +5,7 @@ import { LogComponent } from '../../components/LogComponent/logComponent.jsx';
 import {useSelector, useDispatch} from 'react-redux'
 import { ToggleSwitch } from '../../components/ToggleSwitch/toggleSwitch.jsx';
 import { FETCH_POKEMON_REQUEST as fetchPokemonList } from '../../redux/actions/pokemon.js';
-import { PlaceholderListCards } from '../../components/PlaceholderListCards/placeholderListCards.jsx';
+import {PlaceholderListCards} from '../../components/PlaceholderListCards/placeholderListCards.jsx'
 
 export const ProductListingPage = () => {
   
@@ -40,16 +40,27 @@ export const ProductListingPage = () => {
   return (
     <div>
       <div className={themeRedux === 'light' ? 'light-theme' : 'dark-theme'}>
-      <div className='header-row'><h1>Pokémon App</h1><ToggleSwitch/><div className='login-container'><LogComponent/></div></div>
-      {pokemons && <ul className='row'>
-      {loading && <PlaceholderListCards/>}
-      {error && <p>Error: {error}</p>}
-        {pokemons.map((pokemon, index) => (
-          <PokemonListCards pokemon={pokemon} index={index}/>
-        ))}
-        <li>
-        </li>
-      </ul> }
+      <nav className="navbar navbar-expand-lg ">
+      <div className="container">
+        
+      <div className="d-flex align-items-center">
+          <h2>Pokemon App</h2>
+          <ToggleSwitch />
+        </div>
+        <div className="d-flex flex-row-reverse">
+          <LogComponent />
+        </div>
+      </div>
+    </nav>
+      {pokemons && (
+          <ul className='row'>
+            {loading && <PlaceholderListCards loading={loading} />}
+            {error && <p>Error: {error}</p>}
+            {pokemons.map((pokemon, index) => (
+              <PokemonListCards key={index} pokemon={pokemon} index={index} loading={loading} />
+            ))}
+          </ul>
+        )}
     </div>
       
     </div>
