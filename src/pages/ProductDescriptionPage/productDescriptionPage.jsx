@@ -30,10 +30,19 @@ return (
 {loading && <p>Loading...</p>}
 {error && <p>Error: {error}</p>}
 {pokemonDetail &&
-<div className='main-container'>
-<div className={`login-container ${themeRedux==='light' ? 'light-theme' : 'dark-theme' }`} id='pdp-login'><LogComponent/></div>
+<div className={`main-container ${themeRedux==='light' ? 'light-theme' : 'dark-theme' }`}>
+<nav className="navbar navbar-expand-lg ">
+      <div className="container">
+      <div className="d-flex align-items-center">
+          <h2>Pokemon App</h2>
+          <ToggleSwitch />
+        </div>
+        <div className="d-flex flex-row-reverse">
+          <LogComponent />
+        </div>
+      </div>
+    </nav>
 <div className={`pdp-container ${themeRedux==='light' ? 'light-theme' : 'dark-theme' }`}>
-    <ToggleSwitch/>
     <div className='pokemon-card'id='grey-area'>
       <div className='row'>
         <div className='pokemon-header'><h2>{pokemonDetail.name}#{ id.toString().padStart(3, '0')}</h2></div>
